@@ -19,7 +19,7 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
+    "forceConsistentCasingInFileNames": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true
