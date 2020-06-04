@@ -22,6 +22,7 @@ export const NavContainer = styled.nav`
     background-position: center;
     background-size: cover;
     opacity: 0.6;
+    z-index: -1;
   }
 `;
 
@@ -63,7 +64,7 @@ export const NavProfileIconWrap = styled.div`
   width: 20rem;
   height: 20rem;
   border-radius: 100%;
-  border: 1px solid ${(props) => props.theme.color.greyDark4};
+  border: 1px solid ${(props) => props.theme.color.greyDark2};
   position: relative;
   margin: 4rem auto;
 `;
