@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MainContainer = styled.main`
-  background-color: #999;
+  background-color: ${props => props.theme.color.background};
   flex: 1;
-  overflow: scroll;
+  overflow: auto;
 `;

@@ -1,41 +1,29 @@
 import React from "react";
 
-import ProfileImage from '../../../assets/images/my_image.png';
-
-import { NavTitleContainer, NavTitle, NavBottomContainer } from './Nav.styles';
+import NavActiveComponent from "./active/NavActive.component";
+import NavNotActiveComponent from "./notActive/NavNotActive.component";
 
 import {
   NavContainer,
   NavHeader,
   MenuIcon,
   SearchIcon,
-  NavSection,
-  NavProfileContainer,
-  NavProfileIconWrap,
-  NavProfileIcon,
+  NavBottomContainer,
 } from "./Nav.styles";
 
-const NavComponent: React.FC = () => {
+type NavPropsType = {
+  menuActive: boolean;
+  menuClicked: any;
+};
+
+const NavComponent: React.FC<NavPropsType> = ({ menuActive, menuClicked }) => {
   return (
-    <NavContainer>
+    <NavContainer menuActive={menuActive}>
       <NavHeader>
-        <MenuIcon />
-        <SearchIcon />
+        <MenuIcon onClick={menuClicked} menuActive={menuActive}/>
+        <SearchIcon menuActive={menuActive}/>
       </NavHeader>
-      <NavSection>
-      
-        <NavProfileContainer>
-          <NavProfileIconWrap>
-            <NavProfileIcon src={ProfileImage} alt="프로필 사진"/>
-          </NavProfileIconWrap>
-        </NavProfileContainer>
-
-        <NavTitleContainer>
-          <NavTitle>Sungjin.log</NavTitle>
-        </NavTitleContainer>
-
-      </NavSection>
-
+      {menuActive ? <NavNotActiveComponent /> : <NavActiveComponent />}
       <NavBottomContainer></NavBottomContainer>
     </NavContainer>
   );

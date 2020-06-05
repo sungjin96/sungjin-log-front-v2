@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { LayoutContainer } from './index.styles';
 import NavComponent from './nav/Nav.component';
 import MainComponent from './main/Main.component';
 
 const Layout: React.FC = ({children}) => {
+  const [menuActive, setMenuActive] = useState(false);
+
+  const menuClicked = () => {
+    setMenuActive(!menuActive);
+  }
   return(
     <LayoutContainer>
-      <NavComponent />
+      <NavComponent menuActive={menuActive} menuClicked={menuClicked}/>
       <MainComponent>
         {children}
       </MainComponent>
