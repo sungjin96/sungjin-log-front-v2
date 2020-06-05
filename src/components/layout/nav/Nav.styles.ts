@@ -9,13 +9,17 @@ type NavStylePropsType = {
   menuActive?: boolean;
 };
 
-export const NavContainer = styled.nav<NavStylePropsType>`
+export const NavContainer = styled.aside<NavStylePropsType>`
   transition: all 0.3s;
   width: ${({ menuActive }) => (menuActive ? "50%" : "30%")};
   min-width: 30rem;
   padding: 2rem;
   position: relative;
   box-shadow: ${(props) => props.theme.shadow.light};
+
+  @media only screen and (max-width: 93.8em) {
+    width: calc(100% - 4rem);
+  }
 
   &::before {
     content: "";
@@ -88,7 +92,9 @@ export const SearchIcon = styled(SearchI)<NavStylePropsType>`
 // ======================= Header End
 
 // ======================= Section Start
-export const NavSection = styled.section``;
+export const NavSection = styled.section`
+
+`;
 
 export const NavProfileContainer = styled.div``;
 

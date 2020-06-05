@@ -39,5 +39,6 @@ declare module "styled-components" {
     };
     line: string;
     mainBorder: string;
+
   }
 }

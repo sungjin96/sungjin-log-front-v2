@@ -13,10 +13,21 @@ const GlobalStyles = createGlobalStyle`
   }
   body{
       font-family: 'Noto Sans KR', sans-serif;
-      font-size: 14px;
   }
   html {
     font-size: 62.5%;
+
+    /* @media only screen and (max-width: 75em) {
+      font-size: 56.25%;
+    }
+
+    @media only screen and (max-width: 56.25em) {
+      font-size: 50%;
+    }
+
+    @media only screen and (max-width: 112.5em) {
+      font-size: 75%;
+    } */
   }
   input {
     border: none;
