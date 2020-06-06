@@ -4,7 +4,7 @@ import NavComponent from './nav/Nav.component';
 import MainComponent from './main/Main.component';
 
 const Layout: React.FC = ({children}) => {
-  const [menuActive, setMenuActive] = useState(false);
+  const [menuActive, setMenuActive] = useState(true);
 
   const menuClicked = () => {
     setMenuActive(!menuActive);

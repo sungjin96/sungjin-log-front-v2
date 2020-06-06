@@ -14,12 +14,14 @@ export const NavContainer = styled.aside<NavStylePropsType>`
   transition: all 0.3s;
   width: ${({ menuActive }) => (menuActive ? "50%" : "30%")};
   min-width: 30rem;
+  height: calc(100vh - 4rem);
   padding: 2rem;
   position: relative;
   box-shadow: ${(props) => props.theme.shadow.light};
 
   @media only screen and (max-width: 93.8em) {
     width: calc(100% - 4rem);
+    height: auto;
 
     ${({ menuActive }) => (menuActive ? "height: 100vh; position: fixed;" : "")}
   }
@@ -36,7 +38,7 @@ export const NavContainer = styled.aside<NavStylePropsType>`
     background-size: cover;
     box-shadow: inset 0 0 0 2000px
       ${({ menuActive }) =>
-        menuActive ? "rgba(131, 206, 242, 1)" : "rgba(131, 206, 242, 0.3)"};
+        menuActive ? "rgba(173, 213, 228, 1)" : "rgba(131, 206, 242, 0.3)"};
     z-index: -1;
   }
 `;
@@ -122,6 +124,7 @@ export const IconContainer = styled.div`
       0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
       0px 12px 10px -10px rgba(0, 0, 0, 0.05);
     border: 1px solid rgba(0, 0, 0, 0.01);
+    transform: scale(1);
   }
 `;
 

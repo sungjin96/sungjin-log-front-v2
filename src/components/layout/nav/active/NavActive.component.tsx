@@ -1,33 +1,86 @@
 import React from "react";
 
-import ProfileImage from "../../../../assets/images/my_image.png";
-
 import {
-  NavTitleContainer,
-  NavTitle,
-  NavInfo,
-  NavProfileContainer,
-  NavProfileIconWrap,
-  NavProfileIcon,
+  NavActiveContainer,
+  NavMenuContainer,
+  NavInfoContainer,
+  MenuHeaderContainer,
+  MenuTitle,
+  BastTagContainer,
 } from "./NavActive.styles";
 import { NavSection } from "../Nav.styles";
+import { BastPostContainer } from "./NavActive.styles";
+import {
+  MenuList,
+  MenuItem,
+  MenuContainer,
+  MenuContentContainer,
+} from "./NavActive.styles";
 
 const NavActiveComponent: React.FC = () => {
   return (
     <>
       <NavSection>
-        <NavProfileContainer>
-          <NavProfileIconWrap>
-            <NavProfileIcon src={ProfileImage} alt="프로필 사진" />
-          </NavProfileIconWrap>
-        </NavProfileContainer>
+        <NavActiveContainer>
+          <NavMenuContainer>
+            <MenuHeaderContainer>카테고리</MenuHeaderContainer>
+            <MenuContentContainer>
+              <MenuContainer>
+                <MenuTitle>개발</MenuTitle>
+                <MenuList>
+                  <MenuItem>React (2)</MenuItem>
+                  <MenuItem>Javascript (2)</MenuItem>
+                  <MenuItem>Java (2)</MenuItem>
+                  <MenuItem>Ios (2)</MenuItem>
+                  <MenuItem>React (2)</MenuItem>
+                  <MenuItem>Javascript (2)</MenuItem>
+                  <MenuItem>Java (2)</MenuItem>
+                  <MenuItem>Ios (2)</MenuItem>
+                </MenuList>
+              </MenuContainer>
 
-        <NavTitleContainer>
-          <NavTitle>Sungjin.log</NavTitle>
-          <NavInfo>
-            혼자 개발 해보고 후회하고 반성하기위한 블로그 입니다.
-          </NavInfo>
-        </NavTitleContainer>
+              <MenuContainer>
+                <MenuTitle>일상</MenuTitle>
+                <MenuList>
+                  <MenuItem>리뷰 (2)</MenuItem>
+                  <MenuItem>생각정리 (2)</MenuItem>
+                  <MenuItem>잡생각 (2)</MenuItem>
+                </MenuList>
+              </MenuContainer>
+
+              <MenuContainer>
+                <MenuTitle>일상</MenuTitle>
+                <MenuList>
+                  <MenuItem>리뷰 (2)</MenuItem>
+                  <MenuItem>생각정리 (2)</MenuItem>
+                  <MenuItem>잡생각 (2)</MenuItem>
+                </MenuList>
+              </MenuContainer>
+
+              <MenuContainer>
+                <MenuTitle>일상</MenuTitle>
+                <MenuList>
+                  <MenuItem>리뷰 (2)</MenuItem>
+                  <MenuItem>생각정리 (2)</MenuItem>
+                  <MenuItem>잡생각 (2)</MenuItem>
+                </MenuList>
+              </MenuContainer>
+
+              <MenuContainer>
+                <MenuTitle>일상</MenuTitle>
+                <MenuList>
+                  <MenuItem>리뷰 (2)</MenuItem>
+                  <MenuItem>생각정리 (2)</MenuItem>
+                  <MenuItem>잡생각 (2)</MenuItem>
+                </MenuList>
+              </MenuContainer>
+            </MenuContentContainer>
+          </NavMenuContainer>
+          <NavInfoContainer>
+            <BastTagContainer></BastTagContainer>
+            <BastPostContainer></BastPostContainer>
+          </NavInfoContainer>
+        </NavActiveContainer>
       </NavSection>
     </>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import MainPage from "./pages/MainPage";
+import MainPage from "./pages/main/MainPage";
 import { ThemeProvider } from "styled-components";
 import theme from "./styles/Theme.styles";
 import GlobalStyles from "./styles/Global.styles";

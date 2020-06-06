@@ -1,7 +1,7 @@
 import React from "react";
 
-import NavActiveComponent from "./active/NavActive.component";
-import NavNotActiveComponent from "./notActive/NavNotActive.component";
+import NavActiveComponent from "./notActive/NavNotActive.component";
+import NavNotActiveComponent from "./active/NavActive.component";
 import { IconContainer } from './Nav.styles';
 
 import {
