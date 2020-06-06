@@ -6,11 +6,11 @@ import {
   NavTitleContainer,
   NavTitle,
   NavInfo,
-  NavSection,
   NavProfileContainer,
   NavProfileIconWrap,
   NavProfileIcon,
-} from "../Nav.styles";
+} from "./NavActive.styles";
+import { NavSection } from "../Nav.styles";
 
 const NavActiveComponent: React.FC = () => {
   return (

@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import { ReactComponent as MenuI } from "../../../assets/icons/align-left.svg";
 import { ReactComponent as SearchI } from "../../../assets/icons/search.svg";
+import { ReactComponent as SettingI } from "../../../assets/icons/settings.svg";
 
 import BackgroundImage from "../../../assets/images/nav_background_image.jpg";
 
@@ -19,6 +20,8 @@ export const NavContainer = styled.aside<NavStylePropsType>`
 
   @media only screen and (max-width: 93.8em) {
     width: calc(100% - 4rem);
+
+    ${({ menuActive }) => (menuActive ? "height: 100vh; position: fixed;" : "")}
   }
 
   &::before {
@@ -33,7 +36,7 @@ export const NavContainer = styled.aside<NavStylePropsType>`
     background-size: cover;
     box-shadow: inset 0 0 0 2000px
       ${({ menuActive }) =>
-        menuActive ? "rgba(87, 168, 147, 0.9)" : "rgba(255, 255, 255, 0.3)"};
+        menuActive ? "rgba(131, 206, 242, 1)" : "rgba(131, 206, 242, 0.3)"};
     z-index: -1;
   }
 `;
@@ -45,47 +48,33 @@ export const NavHeader = styled.div`
 `;
 
 export const MenuIcon = styled(MenuI)<NavStylePropsType>`
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 4rem;
+  height: 4rem;
   transition: all 0.2s;
-  ${({ menuActive, theme }) =>
-    menuActive ? "color: #fff" : `color: ${theme.color.info}`};
+  color: #fff;
 
   &:hover {
     cursor: pointer;
-    ${({ menuActive, theme }) =>
-      menuActive ? "color: #fff" : `color: ${theme.color.infoLight}`};
     transform: scale(1.1);
   }
 
   &:active {
-    ${({ menuActive, theme }) =>
-      menuActive
-        ? `${theme.color.background}`
-        : `color: ${theme.color.infoDark}`};
     transform: scale(1);
   }
 `;
 
 export const SearchIcon = styled(SearchI)<NavStylePropsType>`
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 4rem;
+  height: 4rem;
   transition: all 0.2s;
-  ${({ menuActive, theme }) =>
-    menuActive ? "color: #fff" : `color: ${theme.color.info}`};
+  color: #fff;
 
   &:hover {
     cursor: pointer;
-    ${({ menuActive, theme }) =>
-      menuActive ? "color: #fff" : `color: ${theme.color.infoLight}`};
     transform: scale(1.1);
   }
 
   &:active {
-    ${({ menuActive, theme }) =>
-      menuActive
-        ? `${theme.color.background}`
-        : `color: ${theme.color.infoDark}`};
     transform: scale(1);
   }
 `;
@@ -93,62 +82,50 @@ export const SearchIcon = styled(SearchI)<NavStylePropsType>`
 
 // ======================= Section Start
 export const NavSection = styled.section`
-
-`;
-
-export const NavProfileContainer = styled.div``;
-
-export const NavProfileIconWrap = styled.div`
-  width: 20rem;
-  height: 20rem;
-  border-radius: 100%;
-  border: 1px solid ${(props) => props.theme.color.info};
-  position: relative;
-  margin: 4rem auto;
-`;
-
-export const NavProfileIcon = styled.img`
-  width: 10rem;
-  height: auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
 `;
 // ======================= Section End
 
-// ======================= Title Start
-export const NavTitleContainer = styled.div`
-  margin: 0 auto;
-`;
-
-export const NavTitle = styled.p`
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-  font-size: 5rem;
-  letter-spacing: 0.4rem;
-  color: ${(props) => props.theme.color.info};
-`;
-
-export const NavInfo = styled.p`
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-  font-size: 3rem;
-  margin-top: 3rem;
-  line-height: 4rem;
-  letter-spacing: 0.1rem;
-  color: ${(props) => props.theme.color.info};
-`;
-// ======================= Title End
-
 // ======================= Bottom Start
 export const NavBottomContainer = styled.div`
-  background-color: #ccc;
   height: 4rem;
   position: absolute;
   bottom: 2rem;
-  left: 0;
-  right: 0;
+  left: 2rem;
+  right: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`;
+
+export const IconContainer = styled.div`
+  cursor: pointer;
+  transition: transform 0.2s;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+    -2px -2px 10px -1px rgba(255, 255, 255, 0.4);
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+      inset -4px -4px 6px -1px rgba(255, 255, 255, 0.4),
+      -0.5px -0.5px 0px rgba(255, 255, 255, 0.4),
+      0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
+      0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.01);
+  }
+`;
+
+export const SettingIcon = styled(SettingI)`
+  width: 3rem;
+  height: 3rem;
 `;
