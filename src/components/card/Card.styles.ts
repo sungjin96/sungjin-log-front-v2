@@ -13,7 +13,7 @@ export const CardContainer = styled.div`
   min-width: 30rem;
   font-family: "Nanum Myeongjo", serif;
   display: inline-block;
-  margin: 10rem 2rem 0 2rem;
+  margin: 7rem 2rem 0 2rem;
 
   border-radius: 1rem;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
@@ -22,11 +22,11 @@ export const CardContainer = styled.div`
 
 export const CardImageContainer = styled.div`
   background-color: ${({ theme }) => theme.color.primary};
-  margin: -5rem auto 1rem auto;
+  margin: -3rem auto 1rem auto;
   width: 90%;
   height: 40rem;
-  box-shadow: 0 1px 38px -12px rgba(0, 0, 0, 0.56),
-    0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 38px -12px rgba(0, 0, 0, 0.2),
+    0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.9);
   border-radius: 1rem;
   overflow: hidden;
 `;
@@ -53,8 +53,17 @@ export const CardContentContainer = styled.div`
 `;
 
 export const CardHeader = styled.span`
-  font-size: 2rem;
+  display: inline-block;
+  font-size: 2.2rem;
   font-weight: 700;
+  height: 4.7rem;
+  line-height: 2.6rem;
+
+  text-overflow: ellipsis;
+  overflow:hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 `;
 
 export const CardBottom = styled.div`

@@ -6,7 +6,7 @@ import SearchComponent from "../search/Search.component";
 
 const Layout: React.FC = ({children}) => {
   const [menuActive, setMenuActive] = useState(false);
-  const [isSearchActive, setSearchActive] = useState(true);
+  const [isSearchActive, setSearchActive] = useState(false);
 
   const menuClicked = () => {
     setMenuActive(!menuActive);

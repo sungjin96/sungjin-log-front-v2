@@ -8,7 +8,7 @@ const MainPage: React.FC = () => {
   return (
     <MainContainer>
       <CardContainer>
-        <CardComponent title="서브 프로젝트 개발일지 03" date="2020.07.24" likeCount={37} commentCount={41} imgSrc={MyImage}/>
+        <CardComponent title="서브 프로젝트 개발일지 03서브 프로젝트 개발일지 03서브 프로젝트 개발일지 03서브 프로젝트 개발일지 03서브 프로젝트 개발일지 03서브 프로젝트 개발일지 03" date="2020.07.24" likeCount={37} commentCount={41} imgSrc={MyImage}/>
         <CardComponent title="서브 프로젝트 개발일지 02" date="2020.07.20" likeCount={35} commentCount={37} imgSrc={MyImage}/>
         <CardComponent title="서브 프로젝트 개발일지 01" date="2020.07.18" likeCount={35} commentCount={30} imgSrc={MyImage}/>
         <CardComponent title="서브 프로젝트 세팅" date="2020.07.12" likeCount={34} commentCount={29} imgSrc={MyImage}/>
