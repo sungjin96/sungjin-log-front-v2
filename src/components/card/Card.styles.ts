@@ -3,6 +3,10 @@ import styled from "styled-components";
 import { ReactComponent as LikeI } from "../../assets/icons/heart.svg";
 import { ReactComponent as CommentI } from "../../assets/icons/message-square.svg";
 
+type CardPropsType = {
+  imgSrc?: any;
+};
+
 export const CardContainer = styled.div`
   background-color: ${({ theme }) => theme.color.background};
   height: auto;
@@ -24,6 +28,21 @@ export const CardImageContainer = styled.div`
   box-shadow: 0 1px 38px -12px rgba(0, 0, 0, 0.56),
     0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
   border-radius: 1rem;
+  overflow: hidden;
+`;
+
+export const CardImage = styled.div<CardPropsType>`
+  cursor: pointer;
+  transition: all 0.2s;
+  background-image: ${({ imgSrc }) => (imgSrc ? `url(${imgSrc})` : "")};
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 export const CardContentContainer = styled.div`

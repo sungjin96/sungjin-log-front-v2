@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { ReactComponent as MenuI } from "../../../assets/icons/align-left.svg";
 import { ReactComponent as SearchI } from "../../../assets/icons/search.svg";
@@ -8,6 +8,7 @@ import BackgroundImage from "../../../assets/images/nav_background_image.jpg";
 
 type NavStylePropsType = {
   menuActive?: boolean;
+  upAndDown?: string;
 };
 
 export const NavContainer = styled.aside<NavStylePropsType>`
@@ -43,10 +44,25 @@ export const NavContainer = styled.aside<NavStylePropsType>`
   }
 `;
 
+const NavHeaderCss = css`
+  z-index: 1;
+  position: fixed;
+  margin-left: -2rem;
+  margin-top: -2rem;
+  padding: 2rem;
+  width: calc(100% - 4rem);
+  background-color: ${({ theme }) => theme.color.primary};
+`;
+
 // ======================= Header Start
-export const NavHeader = styled.div`
+export const NavHeader = styled.div<NavStylePropsType>`
   display: flex;
   justify-content: space-between;
+
+  @media only screen and (max-width: 93.8em) {
+    transition: all 0.2s;
+    ${(props) => props.upAndDown === "up" ? NavHeaderCss : ""}
+  }
 `;
 
 export const MenuIcon = styled(MenuI)<NavStylePropsType>`

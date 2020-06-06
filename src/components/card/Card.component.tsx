@@ -1,4 +1,5 @@
 import React from "react";
+import { CardImage } from './Card.styles';
 
 import {
   CardContainer,
@@ -27,7 +28,9 @@ type CardPropsType = {
 const CardComponent: React.FC<CardPropsType> = ({title, date, imgSrc, likeCount, commentCount}) => {
   return (
     <CardContainer>
-      <CardImageContainer></CardImageContainer>
+      <CardImageContainer>
+        <CardImage  imgSrc={imgSrc}/>
+      </CardImageContainer>
       <CardContentContainer>
         <CardHeader>{title}</CardHeader>
         <CardBottom>
