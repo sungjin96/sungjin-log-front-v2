@@ -16,22 +16,30 @@ import {
   IconContainer,
 } from "./Card.styles";
 
-const CardComponent: React.FC = () => {
+type CardPropsType = {
+  title: string;
+  date: string;
+  imgSrc?: any;
+  likeCount: number;
+  commentCount: number;
+}
+
+const CardComponent: React.FC<CardPropsType> = ({title, date, imgSrc, likeCount, commentCount}) => {
   return (
     <CardContainer>
       <CardImageContainer></CardImageContainer>
       <CardContentContainer>
-        <CardHeader>v2-blog 개발 일지 01v2-blog 개발 일지 01v2-blog 개발 일지 01v2-blog 개발 일지 01</CardHeader>
+        <CardHeader>{title}</CardHeader>
         <CardBottom>
-          <PostDate>- 2020.06.09</PostDate>
+          <PostDate>- {date}</PostDate>
           <IconContainer>
             <LikeContainer>
               <LikeIcon />
-              <LikeCount>4</LikeCount>
+              <LikeCount>{likeCount}</LikeCount>
             </LikeContainer>
             <CommentContainer>
               <CommentIcon />
-              <CommentCount>6</CommentCount>
+              <CommentCount>{commentCount}</CommentCount>
             </CommentContainer>
           </IconContainer>
         </CardBottom>

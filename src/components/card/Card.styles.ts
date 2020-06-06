@@ -6,6 +6,7 @@ import { ReactComponent as CommentI } from "../../assets/icons/message-square.sv
 export const CardContainer = styled.div`
   background-color: ${({ theme }) => theme.color.background};
   height: auto;
+  min-width: 30rem;
   font-family: "Nanum Myeongjo", serif;
   display: inline-block;
   margin: 10rem 2rem 0 2rem;
