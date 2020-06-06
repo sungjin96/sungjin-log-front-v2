@@ -1,20 +1,25 @@
 import React from "react";
 
+import { NavSection } from "../Nav.styles";
 import {
+  MenuList,
+  MenuItem,
+  MenuContainer,
+  MenuContentContainer,
+  BastPostContainer,
+  InfoHeaderConteinr,
+  TagContentContainer,
+  TagItem,
+  TagTitle,
+  MoreIcon,
   NavActiveContainer,
   NavMenuContainer,
   NavInfoContainer,
   MenuHeaderContainer,
   MenuTitle,
   BastTagContainer,
-} from "./NavActive.styles";
-import { NavSection } from "../Nav.styles";
-import { BastPostContainer } from "./NavActive.styles";
-import {
-  MenuList,
-  MenuItem,
-  MenuContainer,
-  MenuContentContainer,
+  PostList,
+  PostItem,
 } from "./NavActive.styles";
 
 const NavActiveComponent: React.FC = () => {
@@ -77,8 +82,32 @@ const NavActiveComponent: React.FC = () => {
             </MenuContentContainer>
           </NavMenuContainer>
           <NavInfoContainer>
-            <BastTagContainer></BastTagContainer>
-            <BastPostContainer></BastPostContainer>
+            <BastTagContainer>
+              <InfoHeaderConteinr>
+                <TagTitle>핫 태그</TagTitle>
+                <MoreIcon />
+              </InfoHeaderConteinr>
+              <TagContentContainer>
+                <TagItem>React</TagItem>
+                <TagItem>Javascript</TagItem>
+                <TagItem>아무거나</TagItem>
+                <TagItem>잡생각</TagItem>
+              </TagContentContainer>
+            </BastTagContainer>
+            <BastPostContainer>
+              <InfoHeaderConteinr>
+                <TagTitle>핫 포스트</TagTitle>
+              </InfoHeaderConteinr>
+              <PostList>
+                <PostItem>v2-blog 개발일지 01</PostItem>
+                <PostItem>v2-blog 개발일지 02</PostItem>
+                <PostItem>v2-blog 개발일지 03</PostItem>
+                <PostItem>v2-blog 개발일지 04</PostItem>
+                <PostItem>v2-blog 개발일지 05</PostItem>
+                <PostItem>v2-blog 개발일지 06</PostItem>
+                <PostItem>v2-blog 개발일지 07 - 마무리</PostItem>
+              </PostList>
+            </BastPostContainer>
           </NavInfoContainer>
         </NavActiveContainer>
       </NavSection>

@@ -17,6 +17,16 @@ const GlobalStyles = createGlobalStyle`
   html {
     font-size: 62.5%;
 
+
+    /* 600 */
+    @media only screen and (max-width: 46.9em){
+      font-size: 50%;
+    }
+    /* 1200 */
+    @media only screen and (max-width: 93.8em){
+      font-size: 56.25%;
+    };
+
     /* @media only screen and (max-width: 75em) {
       font-size: 56.25%;
     }
@@ -48,32 +58,10 @@ const GlobalStyles = createGlobalStyle`
   }
 
 
-  /* Monitors with screen width 1366px or above */
-
   h1 { font-size: 36px; }
-
-  /*  Tablets in landscape mode, older desktop monitors */
-
-  @media only screen and (min-width: 1024px) and (max-width: 1365px) {
-    h1 { font-size: 32px; }
-  }
-
-  /*  Tablets in portrait mode, large display smartphones landscape mode */
-
-  @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    h1 { font-size: 28px; }
-  }
-
-  /*  Smartphones in landscape mode */
-
-  @media only screen and (min-width: 421px) and (max-width: 767px) {
-    h1 { font-size: 24px; }
-  }
-
-  /*  Smartphones in portrait mode  */
-
-  @media only screen and (max-width: 420px) {
-    h1 { font-size: 20px; }
-  }
 `;
 export default GlobalStyles;
+
+// @media only screen and (max-width: 46.9em) 600;
+//   @media only screen and (max-width: 93.8em) 1200;
+

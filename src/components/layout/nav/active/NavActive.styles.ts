@@ -1,12 +1,15 @@
 import styled from "styled-components";
 
+import { ReactComponent as MoreI } from "../../../../assets/icons/more-horizontal.svg";
+
 export const NavActiveContainer = styled.div`
-  background-color: ${({ theme }) => theme.color.background};
   margin-top: 2rem;
   height: calc(100vh - 8rem - 8rem);
-  border-radius: 1rem;
-  box-shadow: ${(props) => props.theme.shadow.card};
   display: flex;
+
+  @media only screen and (max-width: 46.9em) {
+    flex-direction: column;
+  }
 `;
 
 export const NavMenuContainer = styled.div`
@@ -15,15 +18,12 @@ export const NavMenuContainer = styled.div`
   color: ${({ theme }) => theme.color.info};
   overflow: auto;
   position: relative;
+  border-radius: 1rem;
+  background-color: ${({ theme }) => theme.color.background};
+  box-shadow: ${(props) => props.theme.shadow.card};
 
-  &:after{
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 3%;
-    width: 1px;
-    height: 94%;
-    background-color: ${({ theme }) => theme.color.primary};
+  @media only screen and (max-width: 46.9em) {
+    margin-bottom: 2rem;
   }
 `;
 
@@ -71,18 +71,90 @@ export const MenuItem = styled.li`
 `;
 
 export const NavInfoContainer = styled.div`
-  padding: 2rem;
+  padding: 0 2rem;
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  color: ${({ theme }) => theme.color.info};
+
+  @media only screen and (max-width: 46.9em) {
+    padding: 0;
+  }
 `;
 
 export const BastTagContainer = styled.div`
-  flex: 1;
-  background: orange;
+  height: calc(50% - 5rem);
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: ${({ theme }) => theme.color.background};
+  box-shadow: ${(props) => props.theme.shadow.card};
+  overflow: auto;
+`;
+
+export const InfoHeaderConteinr = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+`;
+
+export const TagTitle = styled.span`
+  font-size: 2.5rem;
+  font-weight: 700;
+`;
+
+export const MoreIcon = styled(MoreI)`
+  cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+
+  &:hover {
+    color: ${({ theme }) => theme.color.infoDark};
+  }
+
+  &:active {
+    color: ${({ theme }) => theme.color.infoLight};
+  }
+`;
+
+export const TagContentContainer = styled.div`
+`;
+
+export const TagItem = styled.span`
+  display: inline-block;
+  cursor: pointer;
+  padding: 0.6rem 1.1rem;
+  margin: 0.5rem;
+  border-radius: 100px;
+  border: 1px solid ${({ theme }) => theme.color.primary};
+  &:hover {
+    background-color: ${({ theme }) => theme.color.primary};
+    color: #fff;
+  }
 `;
 
 export const BastPostContainer = styled.div`
-  flex: 1;
+  height: calc(50% - 5rem);
+  padding: 2rem;
   background: yellowgreen;
+  border-radius: 1rem;
+  background-color: ${({ theme }) => theme.color.background};
+  box-shadow: ${(props) => props.theme.shadow.card};
+  overflow: auto;
+`;
+
+export const PostList = styled.div`
+`;
+
+export const PostItem = styled.span`
+  cursor: pointer;
+  display: block;
+  font-size: 1.6rem;
+  margin-bottom: 0.7rem;
+  text-decoration: underline;
+
+  &:hover {
+    color: ${({ theme }) => theme.color.primaryLight};
+  }
 `;

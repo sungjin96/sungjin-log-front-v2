@@ -99,6 +99,12 @@ export const NavBottomContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+
+  @media only screen and (max-width: 93.8em) {
+    bottom: 6rem;
+    right: 4rem;
+    left: 4rem;
+  }
 `;
 
 export const IconContainer = styled.div`
