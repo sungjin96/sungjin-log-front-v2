@@ -4,7 +4,7 @@ import { ReactComponent as CloseI } from "../../assets/icons/x.svg";
 import { ReactComponent as SearchI } from "../../assets/icons/search.svg";
 
 type SearchStylePropsType = {
-  isSearchActive?: boolean;
+  isSearchClick?: boolean;
 };
 
 export const SearchContainer = styled.div<SearchStylePropsType>`
@@ -14,7 +14,7 @@ export const SearchContainer = styled.div<SearchStylePropsType>`
   position: fixed;
   justify-content: center;
   align-items: center;
-  top: ${({ isSearchActive }) => (isSearchActive ? "0" : "-100vh")};
+  top: ${({ isSearchClick }) => (isSearchClick ? "0" : "-100vh")};
   width: 100vw;
   height: 100vh;
   background-color: ${(props) => props.theme.color.info};

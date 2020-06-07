@@ -14,12 +14,16 @@ import {
 } from "./Nav.styles";
 
 type NavPropsType = {
-  menuActive: boolean;
+  isMenuClick: boolean;
   menuClicked: any;
   searchClicked: any;
 };
 
-const NavComponent: React.FC<NavPropsType> = ({ menuActive, menuClicked, searchClicked }) => {
+const NavComponent: React.FC<NavPropsType> = ({
+  isMenuClick,
+  menuClicked,
+  searchClicked,
+}) => {
   const [upAndDown, setUpAndDown] = useState("down");
 
   useEffect(() => {
@@ -30,7 +34,7 @@ const NavComponent: React.FC<NavPropsType> = ({ menuActive, menuClicked, searchC
   }, []);
 
   const handleScrollEvent = (e: any) => {
-    if(!e.srcElement.scrollingElement) return;
+    if (!e.srcElement.scrollingElement) return;
     const scrollTop = e.srcElement.scrollingElement.scrollTop;
     if (scrollTop > "72") {
       setUpAndDown("up");
@@ -40,12 +44,12 @@ const NavComponent: React.FC<NavPropsType> = ({ menuActive, menuClicked, searchC
   };
 
   return (
-    <NavContainer menuActive={menuActive}>
+    <NavContainer isMenuClick={isMenuClick}>
       <NavHeader upAndDown={upAndDown}>
-        <MenuIcon onClick={menuClicked} menuActive={menuActive} />
-        <SearchIcon onClick={searchClicked} menuActive={menuActive} />
+        <MenuIcon onClick={menuClicked} />
+        <SearchIcon onClick={searchClicked} />
       </NavHeader>
-      {menuActive ? <NavNotActiveComponent /> : <NavActiveComponent />}
+      {isMenuClick ? <NavNotActiveComponent /> : <NavActiveComponent />}
       <NavBottomContainer>
         <IconContainer>
           <SettingIcon />

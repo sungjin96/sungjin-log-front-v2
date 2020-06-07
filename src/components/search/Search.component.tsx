@@ -9,16 +9,16 @@ import {
 } from "./Search.styles";
 
 type SearchPropsType = {
-  isSearchActive: boolean;
+  isSearchClick?: boolean;
   searchClicked: any;
 };
 
 const SearchComponent: React.FC<SearchPropsType> = ({
-  isSearchActive,
+  isSearchClick,
   searchClicked,
 }) => {
   return (
-    <SearchContainer isSearchActive={isSearchActive}>
+    <SearchContainer isSearchClick={isSearchClick}>
       <SearchHeaderContainer>
         <CloseIcon onClick={searchClicked} />
       </SearchHeaderContainer>

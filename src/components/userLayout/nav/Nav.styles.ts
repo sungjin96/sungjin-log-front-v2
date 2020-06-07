@@ -7,13 +7,13 @@ import { ReactComponent as SettingI } from "../../../assets/icons/settings.svg";
 import BackgroundImage from "../../../assets/images/nav_background_image.jpg";
 
 type NavStylePropsType = {
-  menuActive?: boolean;
+  isMenuClick?: boolean;
   upAndDown?: string;
 };
 
 export const NavContainer = styled.aside<NavStylePropsType>`
   transition: all 0.3s;
-  width: ${({ menuActive }) => (menuActive ? "50%" : "30%")};
+  width: ${({ isMenuClick }) => (isMenuClick ? "50%" : "30%")};
   min-width: 30rem;
   height: calc(100vh - 4rem);
   padding: 2rem;
@@ -24,7 +24,7 @@ export const NavContainer = styled.aside<NavStylePropsType>`
     width: calc(100% - 4rem);
     height: auto;
 
-    ${({ menuActive }) => (menuActive ? "height: 100vh; position: fixed;" : "")}
+    ${({ isMenuClick }) => (isMenuClick ? "height: 100vh; position: fixed;" : "")}
   }
 
   &::before {
@@ -38,8 +38,8 @@ export const NavContainer = styled.aside<NavStylePropsType>`
     background-position: center;
     background-size: cover;
     box-shadow: inset 0 0 0 2000px
-      ${({ menuActive }) =>
-        menuActive ? "rgba(173, 213, 228, 1)" : "rgba(131, 206, 242, 0.3)"};
+      ${({ isMenuClick }) =>
+        isMenuClick ? "rgba(173, 213, 228, 1)" : "rgba(131, 206, 242, 0.3)"};
     z-index: -1;
   }
 `;
@@ -65,7 +65,7 @@ export const NavHeader = styled.div<NavStylePropsType>`
   }
 `;
 
-export const MenuIcon = styled(MenuI)<NavStylePropsType>`
+export const MenuIcon = styled(MenuI)`
   width: 4rem;
   height: 4rem;
   transition: all 0.2s;
@@ -81,7 +81,7 @@ export const MenuIcon = styled(MenuI)<NavStylePropsType>`
   }
 `;
 
-export const SearchIcon = styled(SearchI)<NavStylePropsType>`
+export const SearchIcon = styled(SearchI)`
   width: 4rem;
   height: 4rem;
   transition: all 0.2s;

@@ -6,7 +6,7 @@ import theme from "./styles/Theme.styles";
 import GlobalStyles from "./styles/Global.styles";
 import { Provider } from "react-redux";
 import store from "./redux/index";
-import Layout from "./components/layout";
+import UserLayout from "./components/userLayout";
 
 const App: React.FC = () => {
   return (
@@ -14,11 +14,11 @@ const App: React.FC = () => {
       <Provider store={store}>
         <ThemeProvider theme={theme}>
           <BrowserRouter>
-            <Layout>
+            <UserLayout>
               <Switch>
                 <Route exact path="/" component={MainPage} />
               </Switch>
-            </Layout>
+            </UserLayout>
           </BrowserRouter>
         </ThemeProvider>
       </Provider>
