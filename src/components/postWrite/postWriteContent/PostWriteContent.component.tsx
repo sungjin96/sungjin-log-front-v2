@@ -1,10 +1,10 @@
 import React, { useRef, useState } from "react";
 
-import { useKeyDown } from "../../../utils/markdown.utils";
+import { useKeyDown, toolClick } from '../../../utils/markdown.utils';
 
 import PreviewComponent from "../../preview/Preview.component";
 import PostWriteHeaderComponent from "../postWriteHeader/PostWriteHeader.component";
-import { PostTitle } from './PostWriteContent.styles';
+import { PostTitle, MarkDownTool } from './PostWriteContent.styles';
 
 import {
   PostWriteContentContainer,
@@ -27,8 +27,17 @@ const PostWriteContentComponent: React.FC<Props> = () => {
   return (
     <PostWriteContentContainer>
       <MarkDownContainer>
-        <PostWriteHeaderComponent></PostWriteHeaderComponent>
-        <MarkDownToolContainer></MarkDownToolContainer>
+        <PostWriteHeaderComponent/>
+        <MarkDownToolContainer>
+          <MarkDownTool onClick={toolClick("#", editerRef)}>H1</MarkDownTool>
+          <MarkDownTool onClick={toolClick("##", editerRef)}>H2</MarkDownTool>
+          <MarkDownTool onClick={toolClick("###", editerRef)}>H3</MarkDownTool>
+          <MarkDownTool onClick={toolClick("####", editerRef)}>H4</MarkDownTool>
+          <MarkDownTool onClick={toolClick("**", editerRef)}>볼드</MarkDownTool>
+          <MarkDownTool onClick={toolClick("_", editerRef)}>비스듬</MarkDownTool>
+          <MarkDownTool onClick={toolClick("~~", editerRef)}>찍</MarkDownTool>
+          <MarkDownTool onClick={toolClick("```", editerRef)}>코드</MarkDownTool>
+        </MarkDownToolContainer>
         <MarkDownEditer
           onKeyDown={useKeyDown(editerRef)}
           ref={editerRef}

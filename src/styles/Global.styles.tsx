@@ -20,11 +20,12 @@ const GlobalStyles = createGlobalStyle`
 
     /* 600 */
     @media only screen and (max-width: 46.9em){
-      font-size: 50%;
+    }
+    /* 900 */
+    @media only screen and (max-width: 70.35em) {
     }
     /* 1200 */
     @media only screen and (max-width: 93.8em){
-      font-size: 56.25%;
     };
 
     /* @media only screen and (max-width: 75em) {

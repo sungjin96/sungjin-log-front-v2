@@ -98,6 +98,11 @@ export const Preview = styled(ReactMarkdown)`
     border-left: 6px solid rgb(131, 206, 242);
     background: rgb(248, 249, 250);
     padding: 1.5rem 1.5rem 1.5rem 5rem;
+
+
+    & > p {
+      margin-block-start: 1.6rem !important;
+    }
   }
 
   & a {
@@ -205,5 +210,20 @@ export const Preview = styled(ReactMarkdown)`
     box-shadow: rgba(0, 0, 0, 0.02) 0px 0px 2px !important;
     color: rgb(36, 41, 46) !important;
     background: rgb(251, 252, 253) !important;
+  }
+
+  & p > code {
+    font-size: 85%;
+    background: rgba(27, 31, 35, 0.05);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+  }
+
+  & strong {
+    font-weight: bold;
+  }
+
+  & em {
+    font-style: italic;
   }
 `;
