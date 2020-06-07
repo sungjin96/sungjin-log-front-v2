@@ -57,11 +57,8 @@ const GlobalStyles = createGlobalStyle`
     padding-right: 1rem;
   }
 
-
-  h1 { font-size: 36px; }
 `;
 export default GlobalStyles;
 
 // @media only screen and (max-width: 46.9em) 600;
 //   @media only screen and (max-width: 93.8em) 1200;
-

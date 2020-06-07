@@ -1,4 +1,11 @@
 import React, { useRef, useState } from "react";
+
+import { useKeyDown } from "../../../utils/markdown.utils";
+
+import PreviewComponent from "../../preview/Preview.component";
+import PostWriteHeaderComponent from "../postWriteHeader/PostWriteHeader.component";
+import { PostTitle } from './PostWriteContent.styles';
+
 import {
   PostWriteContentContainer,
   MarkDownContainer,
@@ -13,22 +20,6 @@ const PostWriteContentComponent: React.FC<Props> = () => {
   const editerRef = useRef<HTMLTextAreaElement>(null);
   const [markDownValue, setMarkDownValue] = useState("");
 
-  const useTab = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.keyCode === 9) {
-      e.preventDefault();
-
-      const value = editerRef.current!.value;
-      const selectionStart = editerRef.current!.selectionStart;
-      const selectionEnd = editerRef.current!.selectionEnd;
-      editerRef.current!.value =
-        value.substring(0, selectionStart) + '  ' + value.substring(selectionEnd);
-      editerRef.current!.selectionStart = selectionEnd + 2 - (selectionEnd - selectionStart);
-      editerRef.current!.selectionEnd = selectionEnd + 2 - (selectionEnd - selectionStart);
-
-      return false;
-    }
-  };
-
   const handleMarkdownValue = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMarkDownValue(e.target.value);
   };
@@ -36,15 +27,19 @@ const PostWriteContentComponent: React.FC<Props> = () => {
   return (
     <PostWriteContentContainer>
       <MarkDownContainer>
+        <PostWriteHeaderComponent></PostWriteHeaderComponent>
         <MarkDownToolContainer></MarkDownToolContainer>
         <MarkDownEditer
-          onKeyDown={useTab}
+          onKeyDown={useKeyDown(editerRef)}
           ref={editerRef}
           value={markDownValue}
           onChange={handleMarkdownValue}
         />
       </MarkDownContainer>
-      <PreviewContainer></PreviewContainer>
+      <PreviewContainer>
+        <PostTitle>TitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitle</PostTitle>
+        <PreviewComponent markDownValue={markDownValue} />
+      </PreviewContainer>
     </PostWriteContentContainer>
   );
 };
