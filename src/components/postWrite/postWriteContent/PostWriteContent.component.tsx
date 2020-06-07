@@ -1,10 +1,9 @@
 import React, { useRef, useState } from "react";
 
-import { useKeyDown, toolClick } from '../../../utils/markdown.utils';
+import { useKeyDown, toolClick } from "../../../utils/markdown.utils";
 
 import PreviewComponent from "../../preview/Preview.component";
 import PostWriteHeaderComponent from "../postWriteHeader/PostWriteHeader.component";
-import { PostTitle, MarkDownTool } from './PostWriteContent.styles';
 
 import {
   PostWriteContentContainer,
@@ -12,6 +11,13 @@ import {
   MarkDownToolContainer,
   MarkDownEditer,
   PreviewContainer,
+  PostTitle,
+  MarkDownTool,
+  BoldIcon,
+  ItalicIcon,
+  StrikethrougnhIcon,
+  CodeIcon,
+  PhotoIcon,
 } from "./PostWriteContent.styles";
 
 type Props = {};
@@ -27,16 +33,27 @@ const PostWriteContentComponent: React.FC<Props> = () => {
   return (
     <PostWriteContentContainer>
       <MarkDownContainer>
-        <PostWriteHeaderComponent/>
+        <PostWriteHeaderComponent />
         <MarkDownToolContainer>
           <MarkDownTool onClick={toolClick("#", editerRef)}>H1</MarkDownTool>
           <MarkDownTool onClick={toolClick("##", editerRef)}>H2</MarkDownTool>
           <MarkDownTool onClick={toolClick("###", editerRef)}>H3</MarkDownTool>
           <MarkDownTool onClick={toolClick("####", editerRef)}>H4</MarkDownTool>
-          <MarkDownTool onClick={toolClick("**", editerRef)}>볼드</MarkDownTool>
-          <MarkDownTool onClick={toolClick("_", editerRef)}>비스듬</MarkDownTool>
-          <MarkDownTool onClick={toolClick("~~", editerRef)}>찍</MarkDownTool>
-          <MarkDownTool onClick={toolClick("```", editerRef)}>코드</MarkDownTool>
+          <MarkDownTool onClick={toolClick("**", editerRef)}>
+            <BoldIcon />
+          </MarkDownTool>
+          <MarkDownTool onClick={toolClick("_", editerRef)}>
+            <ItalicIcon />
+          </MarkDownTool>
+          <MarkDownTool onClick={toolClick("~~", editerRef)}>
+            <StrikethrougnhIcon />
+          </MarkDownTool>
+          <MarkDownTool onClick={toolClick("```", editerRef)}>
+            <CodeIcon />
+          </MarkDownTool>
+          <MarkDownTool>
+            <PhotoIcon />
+          </MarkDownTool>
         </MarkDownToolContainer>
         <MarkDownEditer
           onKeyDown={useKeyDown(editerRef)}
@@ -46,7 +63,9 @@ const PostWriteContentComponent: React.FC<Props> = () => {
         />
       </MarkDownContainer>
       <PreviewContainer>
-        <PostTitle>TitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitle</PostTitle>
+        <PostTitle>
+          TitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitle
+        </PostTitle>
         <PreviewComponent markDownValue={markDownValue} />
       </PreviewContainer>
     </PostWriteContentContainer>

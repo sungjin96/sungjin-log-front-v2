@@ -10,6 +10,7 @@ export const Preview = styled(ReactMarkdown)`
   letter-spacing: -0.004em;
   word-break: keep-all;
   overflow-wrap: break-word;
+  background-color: ${(props) => props.theme.color.background};
 
   & h1 {
     font-size: 4rem;
