@@ -24,7 +24,8 @@ export const NavContainer = styled.aside<NavStylePropsType>`
     width: calc(100% - 4rem);
     height: auto;
 
-    ${({ isMenuClick }) => (isMenuClick ? "height: 100vh; position: fixed;" : "")}
+    ${({ isMenuClick }) =>
+      isMenuClick ? `height: 100vh; position: fixed;` : ``}
   }
 
   &::before {
@@ -61,7 +62,7 @@ export const NavHeader = styled.div<NavStylePropsType>`
 
   @media only screen and (max-width: 93.8em) {
     transition: all 0.2s;
-    ${(props) => props.upAndDown === "up" ? NavHeaderCss : ""}
+    ${(props) => (props.upAndDown === "up" ? NavHeaderCss : "")}
   }
 `;
 
