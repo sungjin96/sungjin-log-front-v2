@@ -19,13 +19,16 @@ const GlobalStyles = createGlobalStyle`
 
 
     /* 600 */
-    @media only screen and (max-width: 46.9em){
+    @media only screen and (max-width: 600px){
+      font-size: 50%;
     }
     /* 900 */
-    @media only screen and (max-width: 70.35em) {
+    @media only screen and (max-width: 900px) {
+      font-size: 56.25%;
     }
     /* 1200 */
-    @media only screen and (max-width: 93.8em){
+    @media only screen and (max-width: 1200px){
+      
     };
 
     /* @media only screen and (max-width: 75em) {

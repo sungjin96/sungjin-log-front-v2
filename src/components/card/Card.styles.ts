@@ -56,7 +56,7 @@ export const CardHeader = styled.span`
   display: inline-block;
   font-size: 2.2rem;
   font-weight: 700;
-  height: 4.7rem;
+  height: 4.8rem;
   line-height: 2.6rem;
 
   text-overflow: ellipsis;
