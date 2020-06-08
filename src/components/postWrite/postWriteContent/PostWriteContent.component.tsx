@@ -4,6 +4,7 @@ import { useKeyDown, toolClick } from "../../../utils/markdown.utils";
 
 import PreviewComponent from "../../preview/Preview.component";
 import PostWriteHeaderComponent from "../postWriteHeader/PostWriteHeader.component";
+import { QuoteIcon } from "./PostWriteContent.styles";
 
 import {
   PostWriteContentContainer,
@@ -50,6 +51,9 @@ const PostWriteContentComponent: React.FC<Props> = () => {
           </MarkDownTool>
           <MarkDownTool onClick={toolClick("```", editerRef)}>
             <CodeIcon />
+          </MarkDownTool>
+          <MarkDownTool onClick={toolClick("`", editerRef)}>
+            <QuoteIcon />
           </MarkDownTool>
           <MarkDownTool>
             <PhotoIcon />

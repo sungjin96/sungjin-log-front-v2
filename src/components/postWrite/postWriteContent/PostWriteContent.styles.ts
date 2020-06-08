@@ -5,6 +5,7 @@ import { ReactComponent as BoldI } from "../../../assets/icons/format_bold-24px.
 import { ReactComponent as ItalicI } from "../../../assets/icons/format_italic-24px.svg";
 import { ReactComponent as StrikethrougnhI } from "../../../assets/icons/format_strikethrough-24px.svg";
 import { ReactComponent as PhotoI } from "../../../assets/icons/insert_photo-24px.svg";
+import { ReactComponent as QuoteI } from "../../../assets/icons/format_quote-24px.svg";
 
 export const PostWriteContentContainer = styled.div`
   flex: 1;
@@ -69,6 +70,9 @@ export const StrikethrougnhIcon = styled(StrikethrougnhI)`
 export const PhotoIcon = styled(PhotoI)`
   ${IconCss}
 `;
+export const QuoteIcon = styled(QuoteI)`
+ ${IconCss}
+`
 
 export const MarkDownEditer = styled.textarea`
   flex: 1;

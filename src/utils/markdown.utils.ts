@@ -52,6 +52,8 @@ export const toolClick = (
     TextHandle(tag, editerRef);
   } else if (tag === "_") {
     TextHandle(tag, editerRef);
+  } else if (tag === "`") {
+    TextHandle(tag, editerRef);
   } else if (tag === "```") {
     if (selectionEnd - selectionStart === 0) {
       editerRef.current!.value =
@@ -117,7 +119,7 @@ const TextHandle = (
     editerRef.current!.selectionStart =
       selectionEnd + tag.length - (selectionEnd - selectionStart);
     editerRef.current!.selectionEnd =
-      selectionEnd + tag.length+3 - (selectionEnd - selectionStart);
+      selectionEnd + tag.length + 3 - (selectionEnd - selectionStart);
   } else {
     editerRef.current!.value =
       value.substring(0, selectionStart) +
@@ -131,8 +133,8 @@ const TextHandle = (
     editerRef.current?.focus();
 
     editerRef.current!.selectionStart =
-      selectionEnd + tag.length+1 - (selectionEnd - selectionStart);
-    editerRef.current!.selectionEnd = selectionEnd + tag.length+1;
+      selectionEnd + tag.length + 1 - (selectionEnd - selectionStart);
+    editerRef.current!.selectionEnd = selectionEnd + tag.length + 1;
   }
 };
 
@@ -142,13 +144,14 @@ export const formatHtml = (text: string) => {
 
   // ============= 엔터를 BR 태그로 변환 로직 시작
   text.split("\n\n").forEach((line) => {
-    return (value += line.replace(/\n/g, "<br/>") + "\n\n");
+    if (line.indexOf("```") > -1) return (value += line + "\n\n");
+    else if (line[0] === "|" && line[line.length-1] === "|") {
+      return (value += line + "\n\n");
+    } else {
+      return (value += line.replace(/\n/g, "<br/>") + "\n\n");
+    }
   });
   // ============= 엔터를 BR 태그로 변환 로직 끝
-
-  // 버그 
-  // eslint-disable-next-line no-useless-escape
-  // console.log(value.replace(/(?<=```)[\<br/\>](?=```)/g, "\n"));
 
   // ============= H 태그들 id추가 용 로직 시작
   // eslint-disable-next-line no-useless-escape
@@ -160,7 +163,9 @@ export const formatHtml = (text: string) => {
       result = result.replace(/\s/g, "-");
       result = result.substring(1);
       result =
-        `<h${level-1} id='${result}'>` + data.substring(level) + `</h${level-1}>`;
+        `<h${level - 1} id='${result}'>` +
+        data.substring(level) +
+        `</h${level - 1}>`;
       markdown += result + "\n\n";
       return result;
     } else {
