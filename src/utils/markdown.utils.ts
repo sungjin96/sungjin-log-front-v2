@@ -31,6 +31,7 @@ export const toolClick = (
       editerRef.current!.value =
         value.substring(0, selectionStart) +
         "\n" +
+        "\n" +
         tag +
         " " +
         value.substring(selectionEnd);
@@ -38,9 +39,10 @@ export const toolClick = (
       editerRef.current!.value =
         value.substring(0, selectionStart) +
         "\n" +
+        "\n" +
         tag +
         " " +
-        value.substring(selectionStart + 1);
+        value.substring(selectionStart);
     }
 
     editerRef.current?.focus();
@@ -55,11 +57,13 @@ export const toolClick = (
       editerRef.current!.value =
         value.substring(0, selectionStart) +
         "\n" +
+        "\n" +
         tag +
         "\n" +
         "코드" +
         "\n" +
         tag +
+        "\n" +
         "\n" +
         value.substring(selectionEnd);
 
