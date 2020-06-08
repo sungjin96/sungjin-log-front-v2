@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown";
 export const Preview = styled(ReactMarkdown)`
   padding: 2rem;
   /* font-family: "Nanum Myeongjo", serif; */
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: rgb(34, 36, 38);
   line-height: 1.7;
   letter-spacing: -0.004em;
@@ -226,5 +226,17 @@ export const Preview = styled(ReactMarkdown)`
 
   & em {
     font-style: italic;
+  }
+
+  & hr {
+    height: 1px;
+    width: 100%;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    background: rgb(222, 222, 222);
   }
 `;
