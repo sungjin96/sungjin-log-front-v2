@@ -157,7 +157,7 @@ export const formatHtml = (text: string) => {
   // eslint-disable-next-line no-useless-escape
   const regExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi;
   value.split(/\n\n/g).map((data) => {
-    if (data.indexOf("\n") === -1 && data.indexOf("\n#") !== -1) {
+    if (data.indexOf("\n") === -1 && data[0] === "#") {
       let level = data.split("#").length;
       let result = data.replace(regExp, "");
       result = result.replace(/\s/g, "-");
