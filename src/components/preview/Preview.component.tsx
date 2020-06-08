@@ -1,7 +1,10 @@
 import React from "react";
 
-import { Preview } from "./Preview.styles";
+import { formatHtml } from "src/utils/markdown.utils";
+
 import CodeBlock from "../postWrite/codeBlock/CodeBlock.component";
+
+import { Preview } from "./Preview.styles";
 
 type Props = {
   markDownValue: string;
@@ -10,7 +13,7 @@ type Props = {
 const PreviewComponent: React.FC<Props> = ({ markDownValue }) => {
   return (
     <Preview
-      source={markDownValue}
+      source={formatHtml(markDownValue)}
       renderers={{ code: CodeBlock }}
       escapeHtml={false}
     />

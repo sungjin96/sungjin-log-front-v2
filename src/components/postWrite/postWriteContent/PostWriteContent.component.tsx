@@ -23,7 +23,7 @@ import {
 type Props = {};
 
 const PostWriteContentComponent: React.FC<Props> = () => {
-  const editerRef = useRef<HTMLTextAreaElement>(null);
+  const editerRef = useRef(null);
   const [markDownValue, setMarkDownValue] = useState("");
 
   const handleMarkdownValue = (e: React.ChangeEvent<HTMLTextAreaElement>) => {

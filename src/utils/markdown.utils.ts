@@ -15,12 +15,6 @@ export const useKeyDown = (editerRef: React.RefObject<HTMLTextAreaElement>) => (
       selectionEnd + 2 - (selectionEnd - selectionStart);
 
     return false;
-  } else if (e.keyCode === 13) {
-    // const value = editerRef.current!.value;
-    // const selectionStart = editerRef.current!.selectionStart;
-    // const selectionEnd = editerRef.current!.selectionEnd;
-    // editerRef.current!.value =
-    //   value.substring(0, selectionStart) + "<br>" + value.substring(selectionEnd);
   }
 };
 
@@ -91,8 +85,7 @@ export const toolClick = (
 
       editerRef.current!.selectionStart =
         selectionEnd + 5 - (selectionEnd - selectionStart);
-      editerRef.current!.selectionEnd =
-        selectionEnd + 5;
+      editerRef.current!.selectionEnd = selectionEnd + 5;
     }
 
     editerRef.current?.focus();
@@ -137,4 +130,14 @@ const TextHandle = (
       selectionEnd + 3 - (selectionEnd - selectionStart);
     editerRef.current!.selectionEnd = selectionEnd + 3;
   }
+};
+
+export const formatHtml = (text: string) => {
+  let value = "";
+  text.split("\n\n").map((line) => {
+    console.log(line.replace(/\n/g, "<br/>"));
+    return (value += line.replace(/\n/g, "<br/>") + "\n\n");
+  });
+
+  return value;
 };
