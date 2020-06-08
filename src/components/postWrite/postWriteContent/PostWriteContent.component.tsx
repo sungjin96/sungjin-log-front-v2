@@ -16,44 +16,31 @@ import {
   PostTitle,
 } from "./PostWriteContent.styles";
 
-type Props = {};
+type Props = {
+  editerRef: any;
 
-const PostWriteContentComponent: React.FC<Props> = () => {
-  const editerRef = useRef(null);
-  const [markDownValue, setMarkDownValue] = useState("");
-  const [tags, setTags] = useState<InputTag[]>([]);
-  const [inputs, setInputs] = useState({
-    title: "",
-    tag: "",
-    imgUrl: "",
-  });
-  const { title, tag, imgUrl } = inputs;
+  title: string;
+  tag: string;
+  markDownValue: string;
+  tags: InputTag[];
 
-  const handleMarkdownValue = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setMarkDownValue(e.target.value);
-  };
+  handleMarkdownValue: any;
+  handleInput: any;
+  handleTagKeyPress: any;
+  handleTagClick: any;
+};
 
-  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-
-    setInputs({ ...inputs, [name]: value });
-  };
-
-  const handleTagKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    const { key } = e;
-    if (key === "Enter" && tag !== "" && tags.length < 5) {
-      setTags([...tags, { content: tag }]);
-      setInputs({ ...inputs, tag: "" });
-    }
-  };
-
-  const handleTagClick = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    index: number
-  ) => {
-    setTags(tags.filter((data, idx) => idx !== index));
-  };
-
+const PostWriteContentComponent: React.FC<Props> = ({
+  editerRef,
+  markDownValue,
+  tag,
+  title,
+  handleInput,
+  handleMarkdownValue,
+  handleTagClick,
+  handleTagKeyPress,
+  tags,
+}) => {
   return (
     <PostWriteContentContainer>
       <MarkDownContainer>

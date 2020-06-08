@@ -7,7 +7,7 @@ export type ButtonTypes = {
   onClick?: any;
 };
 
-const CustomButton: React.FC = ({ children, ...props }) => {
+const CustomButton: React.FC<ButtonTypes> = ({ children, ...props }) => {
   return <CustomButtonContainer {...props}>{children}</CustomButtonContainer>;
 };
 
