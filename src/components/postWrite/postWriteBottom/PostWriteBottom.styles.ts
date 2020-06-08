@@ -7,12 +7,19 @@ export const PostWriteBottomContainer = styled.div`
   display: flex;
   align-content: center;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+
+  @media only screen and (max-width: 900px) {
+    justify-content: space-between;
+  }
 `;
 
 export const Button = styled(CustomButton)`
-
   &:nth-child(2) {
     margin-left: auto;
     margin-right: 2rem;
+
+    @media only screen and (max-width: 900px) {
+      margin-left: 2rem;
+    }
   }
 `;

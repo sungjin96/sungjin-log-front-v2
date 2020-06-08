@@ -85,7 +85,7 @@ export const PreviewContainer = styled.div`
   overflow: auto;
   background-color: ${(props) => props.theme.color.background};
 
-  @media only screen and (max-width: 70.35em) {
+  @media only screen and (max-width: 900px) {
     display: none;
   }
 `;

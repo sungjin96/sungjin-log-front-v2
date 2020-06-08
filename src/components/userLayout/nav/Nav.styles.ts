@@ -20,7 +20,7 @@ export const NavContainer = styled.aside<NavStylePropsType>`
   position: relative;
   box-shadow: ${(props) => props.theme.shadow.light};
 
-  @media only screen and (max-width: 93.8em) {
+  @media only screen and (max-width: 1200px) {
     width: calc(100% - 4rem);
     height: auto;
 
@@ -60,7 +60,7 @@ export const NavHeader = styled.div<NavStylePropsType>`
   display: flex;
   justify-content: space-between;
 
-  @media only screen and (max-width: 93.8em) {
+  @media only screen and (max-width: 1200px) {
     transition: all 0.2s;
     ${(props) => (props.upAndDown === "up" ? NavHeaderCss : "")}
   }
@@ -117,7 +117,7 @@ export const NavBottomContainer = styled.div`
   justify-content: flex-end;
   align-items: center;
 
-  @media only screen and (max-width: 93.8em) {
+  @media only screen and (max-width: 1200px) {
     bottom: 6rem;
     right: 4rem;
     left: 4rem;

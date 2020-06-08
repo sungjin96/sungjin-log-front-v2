@@ -5,7 +5,7 @@ export const LayoutContainer = styled.div`
   width: 100vw;
   display: flex;
 
-  @media only screen and (max-width: 93.8em) {
+  @media only screen and (max-width: 1200px) {
     flex-direction: column;
   }
 `;

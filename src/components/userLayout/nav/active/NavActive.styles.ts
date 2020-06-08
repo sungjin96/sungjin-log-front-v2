@@ -7,7 +7,7 @@ export const NavActiveContainer = styled.div`
   height: calc(100vh - 8rem - 8rem);
   display: flex;
 
-  @media only screen and (max-width: 46.9em) {
+  @media only screen and (max-width: 600px) {
     flex-direction: column;
   }
 `;
@@ -22,7 +22,7 @@ export const NavMenuContainer = styled.div`
   background-color: ${({ theme }) => theme.color.background};
   box-shadow: ${(props) => props.theme.shadow.card};
 
-  @media only screen and (max-width: 46.9em) {
+  @media only screen and (max-width: 600px) {
     margin-bottom: 2rem;
   }
 `;
@@ -78,7 +78,7 @@ export const NavInfoContainer = styled.div`
   justify-content: space-between;
   color: ${({ theme }) => theme.color.info};
 
-  @media only screen and (max-width: 46.9em) {
+  @media only screen and (max-width: 600px) {
     padding: 0;
   }
 `;
