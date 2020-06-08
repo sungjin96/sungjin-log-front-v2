@@ -138,13 +138,34 @@ const TextHandle = (
 
 export const formatHtml = (text: string) => {
   let value = "";
-  text.split("\n\n").map((line) => {
+  let markdown = "";
+
+  // ============= 엔터를 BR 태그로 변환 로직 시작
+  text.split("\n\n").forEach((line) => {
     return (value += line.replace(/\n/g, "<br/>") + "\n\n");
   });
-  // eslint-disable-next-line no-useless-escape
-  // const regExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi;
-  // let test = "aaa ddd as&d^fw%k#d.".replace(regExp, "");
-  // test = test.replace(/\s/g, "-");
+  // ============= 엔터를 BR 태그로 변환 로직 끝
 
-  return value;
+  // ============= H 태그들 id추가 용 로직 시작
+  // eslint-disable-next-line no-useless-escape
+  const regExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi;
+
+  value.split(/[# ](.*?)[\n\n]/g).map((data) => {
+    if (data.indexOf("\n") === -1 && data.indexOf("#") !== -1) {
+      let level = data.split("#").length;
+      let result = data.replace(regExp, "");
+      result = result.replace(/\s/g, "-");
+      result = result.substring(1);
+      result =
+        `<h${level} id='${result}'>` + data.substring(level) + `</h${level}>`;
+      markdown += result + "\n\n";
+      return result;
+    } else {
+      markdown += data;
+      return data;
+    }
+  });
+  // ============= H 태그들 id추가 용 로직 끝
+
+  return markdown;
 };
