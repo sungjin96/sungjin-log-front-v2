@@ -149,8 +149,7 @@ export const formatHtml = (text: string) => {
   // ============= H 태그들 id추가 용 로직 시작
   // eslint-disable-next-line no-useless-escape
   const regExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi;
-
-  value.split(/[# ](.*?)[\n\n]/g).map((data) => {
+  value.split(/\n\n/g).map((data) => {
     if (data.indexOf("\n") === -1 && data.indexOf("#") !== -1) {
       let level = data.split("#").length;
       let result = data.replace(regExp, "");
@@ -161,7 +160,7 @@ export const formatHtml = (text: string) => {
       markdown += result + "\n\n";
       return result;
     } else {
-      markdown += data;
+      markdown += data + "\n\n";
       return data;
     }
   });
