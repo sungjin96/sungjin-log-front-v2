@@ -139,9 +139,12 @@ const TextHandle = (
 export const formatHtml = (text: string) => {
   let value = "";
   text.split("\n\n").map((line) => {
-    console.log(line.replace(/\n/g, "<br/>"));
     return (value += line.replace(/\n/g, "<br/>") + "\n\n");
   });
+  // eslint-disable-next-line no-useless-escape
+  // const regExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi;
+  // let test = "aaa ddd as&d^fw%k#d.".replace(regExp, "");
+  // test = test.replace(/\s/g, "-");
 
   return value;
 };
