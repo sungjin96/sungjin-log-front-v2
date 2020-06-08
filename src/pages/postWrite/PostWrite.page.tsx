@@ -6,6 +6,7 @@ import PostWriteBottomComponent from '../../components/postWrite/postWriteBottom
 import { PostWriteContainer } from "./PostWrite.styles";
 
 const PostWritePage: React.FC = () => {
+
   return (
     <PostWriteContainer>
       <PostWriteContentComponent />

@@ -1,24 +1,19 @@
 import React, { useRef, useState } from "react";
 
-import { useKeyDown, toolClick } from "../../../utils/markdown.utils";
+import { useKeyDown } from "../../../utils/markdown.utils";
+
+import { InputTag } from "../../../types/tag";
 
 import PreviewComponent from "../../preview/Preview.component";
 import PostWriteHeaderComponent from "../postWriteHeader/PostWriteHeader.component";
-import { QuoteIcon } from "./PostWriteContent.styles";
+import MarkDownToolComponent from "../markDownTool/MarkDownTool.component";
 
 import {
   PostWriteContentContainer,
   MarkDownContainer,
-  MarkDownToolContainer,
   MarkDownEditer,
   PreviewContainer,
   PostTitle,
-  MarkDownTool,
-  BoldIcon,
-  ItalicIcon,
-  StrikethrougnhIcon,
-  CodeIcon,
-  PhotoIcon,
 } from "./PostWriteContent.styles";
 
 type Props = {};
@@ -26,39 +21,51 @@ type Props = {};
 const PostWriteContentComponent: React.FC<Props> = () => {
   const editerRef = useRef(null);
   const [markDownValue, setMarkDownValue] = useState("");
+  const [tags, setTags] = useState<InputTag[]>([]);
+  const [inputs, setInputs] = useState({
+    title: "",
+    tag: "",
+    imgUrl: "",
+  });
+  const { title, tag, imgUrl } = inputs;
 
   const handleMarkdownValue = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMarkDownValue(e.target.value);
   };
 
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    setInputs({ ...inputs, [name]: value });
+  };
+
+  const handleTagKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const { key } = e;
+    if (key === "Enter" && tag !== "" && tags.length < 5) {
+      setTags([...tags, { content: tag }]);
+      setInputs({ ...inputs, tag: "" });
+    }
+  };
+
+  const handleTagClick = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    index: number
+  ) => {
+    setTags(tags.filter((data, idx) => idx !== index));
+  };
+
   return (
     <PostWriteContentContainer>
       <MarkDownContainer>
-        <PostWriteHeaderComponent />
-        <MarkDownToolContainer>
-          <MarkDownTool onClick={toolClick("#", editerRef)}>H1</MarkDownTool>
-          <MarkDownTool onClick={toolClick("##", editerRef)}>H2</MarkDownTool>
-          <MarkDownTool onClick={toolClick("###", editerRef)}>H3</MarkDownTool>
-          <MarkDownTool onClick={toolClick("####", editerRef)}>H4</MarkDownTool>
-          <MarkDownTool onClick={toolClick("**", editerRef)}>
-            <BoldIcon />
-          </MarkDownTool>
-          <MarkDownTool onClick={toolClick("_", editerRef)}>
-            <ItalicIcon />
-          </MarkDownTool>
-          <MarkDownTool onClick={toolClick("~~", editerRef)}>
-            <StrikethrougnhIcon />
-          </MarkDownTool>
-          <MarkDownTool onClick={toolClick("```", editerRef)}>
-            <CodeIcon />
-          </MarkDownTool>
-          <MarkDownTool onClick={toolClick("`", editerRef)}>
-            <QuoteIcon />
-          </MarkDownTool>
-          <MarkDownTool>
-            <PhotoIcon />
-          </MarkDownTool>
-        </MarkDownToolContainer>
+        <PostWriteHeaderComponent
+          handleInput={handleInput}
+          title={title}
+          handleTagClick={handleTagClick}
+          handleTagKeyPress={handleTagKeyPress}
+          tag={tag}
+          tags={tags}
+        />
+        <MarkDownToolComponent editerRef={editerRef} />
         <MarkDownEditer
           onKeyDown={useKeyDown(editerRef)}
           ref={editerRef}
@@ -67,9 +74,7 @@ const PostWriteContentComponent: React.FC<Props> = () => {
         />
       </MarkDownContainer>
       <PreviewContainer>
-        <PostTitle>
-          TitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitle
-        </PostTitle>
+        <PostTitle>{title}</PostTitle>
         <PreviewComponent markDownValue={markDownValue} />
       </PreviewContainer>
     </PostWriteContentContainer>
