@@ -146,6 +146,10 @@ export const formatHtml = (text: string) => {
   });
   // ============= 엔터를 BR 태그로 변환 로직 끝
 
+  // 버그 
+  // eslint-disable-next-line no-useless-escape
+  // console.log(value.replace(/(?<=```)[\<br/\>](?=```)/g, "\n"));
+
   // ============= H 태그들 id추가 용 로직 시작
   // eslint-disable-next-line no-useless-escape
   const regExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi;
