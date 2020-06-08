@@ -2,6 +2,7 @@ import AWS from "aws-sdk";
 import moment from "moment";
 
 export async function uploadImage(file: File, fileName: string) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   let dataUrl: string = "";
   console.log(process.env.I_DENTITY_POLL_ID);
   //아마존 S3에 저장하려면 먼저 설정을 업데이트합니다.

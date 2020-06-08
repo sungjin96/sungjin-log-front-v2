@@ -19,7 +19,7 @@ const PostWritePage: React.FC = () => {
     tag: "",
     imgUrl: "",
   });
-  const { title, tag, imgUrl } = inputs;
+  const { title, tag } = inputs;
 
   const handleMarkdownValue = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMarkDownValue(e.target.value);
