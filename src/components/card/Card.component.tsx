@@ -29,7 +29,7 @@ const CardComponent: React.FC<CardPropsType> = ({title, date, imgSrc, likeCount,
   return (
     <CardContainer>
       <CardImageContainer>
-        <CardImage  imgSrc={imgSrc}/>
+        <CardImage src={imgSrc}/>
       </CardImageContainer>
       <CardContentContainer>
         <CardHeader>{title}</CardHeader>

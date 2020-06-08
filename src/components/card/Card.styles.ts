@@ -14,10 +14,15 @@ export const CardContainer = styled.div`
   font-family: "Nanum Myeongjo", serif;
   display: inline-block;
   margin: 7rem 2rem 0 2rem;
+  transition: all 0.4s;
 
   border-radius: 1rem;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+  &:hover {
+    transform: translateY(-2rem);
+  }
 `;
 
 export const CardImageContainer = styled.div`
@@ -29,20 +34,19 @@ export const CardImageContainer = styled.div`
     0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.9);
   border-radius: 1rem;
   overflow: hidden;
+  position: relative;
 `;
 
-export const CardImage = styled.div<CardPropsType>`
+export const CardImage = styled.img`
   cursor: pointer;
-  transition: all 0.2s;
-  background-image: ${({ imgSrc }) => (imgSrc ? `url(${imgSrc})` : "")};
-  background-size: cover;
-  background-position: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
   width: 100%;
   height: 100%;
+  display: block;
+  object-fit: cover;
 
-  &:hover {
-    transform: scale(1.1);
-  }
 `;
 
 export const CardContentContainer = styled.div`
@@ -60,7 +64,7 @@ export const CardHeader = styled.span`
   line-height: 2.6rem;
 
   text-overflow: ellipsis;
-  overflow:hidden;
+  overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
