@@ -70,9 +70,9 @@ export const toolClick = (
       editerRef.current?.focus();
 
       editerRef.current!.selectionStart =
-        selectionEnd + 5 - (selectionEnd - selectionStart);
+        selectionEnd + 6 - (selectionEnd - selectionStart);
       editerRef.current!.selectionEnd =
-        selectionEnd + 7 - (selectionEnd - selectionStart);
+        selectionEnd + 8 - (selectionEnd - selectionStart);
     } else {
       editerRef.current!.value =
         value.substring(0, selectionStart) +
@@ -115,9 +115,9 @@ const TextHandle = (
     editerRef.current?.focus();
 
     editerRef.current!.selectionStart =
-      selectionEnd + 2 - (selectionEnd - selectionStart);
+      selectionEnd + tag.length - (selectionEnd - selectionStart);
     editerRef.current!.selectionEnd =
-      selectionEnd + 5 - (selectionEnd - selectionStart);
+      selectionEnd + tag.length+3 - (selectionEnd - selectionStart);
   } else {
     editerRef.current!.value =
       value.substring(0, selectionStart) +
@@ -131,8 +131,8 @@ const TextHandle = (
     editerRef.current?.focus();
 
     editerRef.current!.selectionStart =
-      selectionEnd + 3 - (selectionEnd - selectionStart);
-    editerRef.current!.selectionEnd = selectionEnd + 3;
+      selectionEnd + tag.length+1 - (selectionEnd - selectionStart);
+    editerRef.current!.selectionEnd = selectionEnd + tag.length+1;
   }
 };
 
@@ -156,7 +156,7 @@ export const formatHtml = (text: string) => {
       result = result.replace(/\s/g, "-");
       result = result.substring(1);
       result =
-        `<h${level} id='${result}'>` + data.substring(level) + `</h${level}>`;
+        `<h${level-1} id='${result}'>` + data.substring(level) + `</h${level-1}>`;
       markdown += result + "\n\n";
       return result;
     } else {
