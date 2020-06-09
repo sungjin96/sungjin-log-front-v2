@@ -19,6 +19,7 @@ export const NavContainer = styled.aside<NavStylePropsType>`
   padding: 2rem;
   position: relative;
   box-shadow: ${(props) => props.theme.shadow.light};
+  z-index: 2;
 
   @media only screen and (max-width: 1200px) {
     width: calc(100% - 4rem);

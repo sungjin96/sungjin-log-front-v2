@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import store from "./redux/index";
 import UserLayout from "./components/userLayout";
 import PostWritePage from "./pages/postWrite/PostWrite.page";
+import PostPage from "./pages/post/Post.page";
 
 const App: React.FC = () => {
   return (
@@ -22,6 +23,15 @@ const App: React.FC = () => {
                 render={() => (
                   <UserLayout>
                     <MainPage />
+                  </UserLayout>
+                )}
+              />
+              <Route
+                exact
+                path="/post/:key"
+                render={() => (
+                  <UserLayout>
+                    <PostPage />
                   </UserLayout>
                 )}
               />

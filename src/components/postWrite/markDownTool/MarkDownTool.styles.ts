@@ -60,3 +60,12 @@ export const PhotoIcon = styled(PhotoI)`
 export const QuoteIcon = styled(QuoteI)`
  ${IconCss}
 `
+
+export const PostCategorySelect = styled.select`
+  padding: 1rem 2.5rem;
+  margin-left: auto;
+  margin-right: 2rem;
+  border: 1px solid ${props =>props.theme.color.greyLight2};
+
+  outline:none;
+`;

@@ -41,4 +41,4 @@ export const PostTagInput = styled.input`
   height: calc(100% - 4rem);
   flex: 1;
   font-size: 2rem;
-`;
+`

@@ -8,10 +8,12 @@ import PostWriteBottomComponent from "../../components/postWrite/postWriteBottom
 import { PostWriteContainer } from "./PostWrite.styles";
 
 import { InputTag } from "src/types/tag";
+import PostConfigComponent from '../../components/postWrite/postConfig/PostConfig.component';
 
 const PostWritePage: React.FC = () => {
   const editerRef = useRef(null);
   const refFileInput = useRef<HTMLInputElement>(null);
+  const [configClicked, setConfigClicked] = useState(false);
   const [markDownValue, setMarkDownValue] = useState("");
   const [tags, setTags] = useState<InputTag[]>([]);
   const [inputs, setInputs] = useState({
@@ -65,6 +67,10 @@ const PostWritePage: React.FC = () => {
     });
   };
 
+  const handleConfigClick = () => {
+    setConfigClicked(!configClicked);
+  }
+
   return (
     <PostWriteContainer>
       <PostWriteContentComponent
@@ -82,7 +88,9 @@ const PostWritePage: React.FC = () => {
         refFileInput={refFileInput}
         handleFileClick={handleFileClick}
         handleFileChange={handleFileChange}
+        handleConfigClick={handleConfigClick}
       />
+      <PostConfigComponent configClicked={configClicked} handleConfigClick={handleConfigClick}/>
     </PostWriteContainer>
   );
 };

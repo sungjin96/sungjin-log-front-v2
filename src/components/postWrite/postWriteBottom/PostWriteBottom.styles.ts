@@ -14,9 +14,9 @@ export const PostWriteBottomContainer = styled.div`
 `;
 
 export const Button = styled(CustomButton)`
+  margin-left: 2rem;
   &:nth-child(2) {
-    margin-left: auto;
-    margin-right: 2rem;
+    margin-left: auto;    
 
     @media only screen and (max-width: 900px) {
       margin-left: 2rem;

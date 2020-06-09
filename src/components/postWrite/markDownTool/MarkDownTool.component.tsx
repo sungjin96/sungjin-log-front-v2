@@ -10,6 +10,7 @@ import {
   PhotoIcon,
 } from "./MarkDownTool.styles";
 import { toolClick } from "../../../utils/markdown.utils";
+import { PostCategorySelect } from "./MarkDownTool.styles";
 
 type Props = {
   editerRef: any;
@@ -40,6 +41,14 @@ const MarkDownToolComponent: React.FC<Props> = ({ editerRef }) => {
       <MarkDownTool>
         <PhotoIcon />
       </MarkDownTool>
+
+      <PostCategorySelect>
+        <option>카테고리를 선택해 주세요.</option>
+        <option>React</option>
+        <option>Javascript</option>
+        <option>일상</option>
+        <option>잡탕</option>
+      </PostCategorySelect>
     </MarkDownToolContainer>
   );
 };
