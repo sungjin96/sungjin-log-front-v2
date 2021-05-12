@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "aws-sdk": "^2.691.0",
-    "codemirror": "^5.54.0",
+    "codemirror": "^5.58.2",
     "moment": "^2.26.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
